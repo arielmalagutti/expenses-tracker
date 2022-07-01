@@ -21,6 +21,7 @@ function Expenses({ expenses }) {
           return (
             <>
               <ExpenseItem
+                key={items.id}
                 title={items.title}
                 amount={items.amount}
                 date={items.date}
