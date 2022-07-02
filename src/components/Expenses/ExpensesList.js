@@ -1,9 +1,28 @@
 import React from "react";
+import ExpenseItem from "./ExpenseItem";
+import "./ExpensesList.css";
 
-// import { Container } from './styles';
+const ExpensesList = (props) => {
+  if (props.items.length === 0) {
+    return <h2 className="expenses-list__fallback">Found no content.</h2>;
+  }
 
-const ExpensesList = () => {
-  return <div />;
+  return (
+    <ul>
+      {props.items.map((item) => {
+        return (
+          <>
+            <ExpenseItem
+              key={item.id}
+              title={item.title}
+              amount={item.amount}
+              date={item.date}
+            />
+          </>
+        );
+      })}
+    </ul>
+  );
 };
 
 export default ExpensesList;
